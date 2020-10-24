@@ -15,6 +15,8 @@
 
         public string Error { get; set; } = string.Empty;
 
+        public JsonResult() { }
+
         public JsonResult(T data)
         {
             Data = data;
