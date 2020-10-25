@@ -5,9 +5,8 @@ using System.Linq;
 
 namespace Sample.API.Models
 {
-    public class Pagination<T>
+    public class Pagination<T> : ApiResult<List<T>>
     {
-        public List<T> Data { get; set; }
         public int Total { get; set; }
 
         public Pagination(IQueryable<T> data, int page, int pageSize)

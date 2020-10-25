@@ -13,7 +13,11 @@ namespace Sample.API.Repositories
         {
             if (data == null)
             {
-                string path = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/CarData.json");
+                string path =
+                    System.Web.HttpContext.Current == null
+                    ? Directory.GetParent(System.Environment.CurrentDirectory).Parent.Parent.Parent.FullName + "\\Sample-API\\Sample.API\\App_Data\\CarData.json" // Unit Test Path
+                    : System.Web.HttpContext.Current.Server.MapPath("~/App_Data/CarData.json"); // API Path
+                
                 if (File.Exists(path))
                 {
                     TextReader textReader = File.OpenText(path);

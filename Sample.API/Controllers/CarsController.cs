@@ -10,7 +10,7 @@ namespace Sample.API.Controllers
     public class CarsController : ApiController
     {
         [HttpGet]
-        public JsonResult<Pagination<Car>> Get(
+        public Pagination<Car> Get(
             [FromUri]string make = null,
             [FromUri]string model = null,
             [FromUri]string color = null,
@@ -28,10 +28,10 @@ namespace Sample.API.Controllers
             carsRequest.CarOptionsRequired = carOptionsRequired;
             carsRequest.Page = page;
             carsRequest.PageSize = pageSize;
-            
-            var results = new CarsManager().Read(carsRequest);
 
-            return new JsonResult<Pagination<Car>>(results);
+            Pagination<Car> results = new CarsManager().Read(carsRequest);
+
+            return results;
         }
     }
 }

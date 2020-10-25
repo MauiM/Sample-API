@@ -1,6 +1,6 @@
 ﻿namespace Sample.API.Models
 {
-    public class JsonResult<T>
+    public class ApiResult<T>
     {
         public T Data { get; set; }
 
@@ -15,9 +15,9 @@
 
         public string Error { get; set; } = string.Empty;
 
-        public JsonResult() { }
+        public ApiResult() { }
 
-        public JsonResult(T data)
+        public ApiResult(T data)
         {
             Data = data;
         }
