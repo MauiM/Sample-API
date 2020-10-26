@@ -20,8 +20,8 @@ namespace Sample.API.Utilities
         public TestCar()
         {
             int makeMax = MakeModelHelper.MakeAndModels.Count;
-            int colorMax = (int)(Enum.GetValues(typeof(ColorEnum)).Cast<ColorEnum>().Last());
-            int carOptionsMax = (int)(Enum.GetValues(typeof(CarOptionEnum)).Cast<CarOptionEnum>().Last());
+            int colorMax = (int)(Enum.GetValues(typeof(ColorEnum)).Cast<ColorEnum>().Last()) + 1;
+            int carOptionsMax = (int)(Enum.GetValues(typeof(CarOptionEnum)).Cast<CarOptionEnum>().Last()) + 1;
 
             var makeAndModel = MakeModelHelper.MakeAndModels.ElementAt(RandomNumber(0, makeMax));
             int modelIndex = RandomNumber(0, makeAndModel.Value.Count);
@@ -32,7 +32,7 @@ namespace Sample.API.Utilities
             Color = ((ColorEnum)RandomNumber(1, colorMax)).ToString();
             Price = (decimal)(RandomNumber(1000000, 5000000)) / (decimal)100.0;
 
-            int carOptionsCount = RandomNumber(0, carOptionsMax);
+            int carOptionsCount = RandomNumber(0, carOptionsMax - 1);
             while (CarOptions.Count < carOptionsCount)
             {
                 CarOptionEnum carOption = (CarOptionEnum)RandomNumber(1, carOptionsMax);
