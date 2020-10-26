@@ -3,7 +3,7 @@
 Notes
  - Main api call is in CarsController.cs
  - There is an API endpoint for generating random car info (CarTestDataController.cs, TestCar.cs, MakeHelper.cs)
- - Data is loaded from CarData.json (10,000 records)
+ - Data is loaded from CarData.json (1,000 records)
 
 CarOptions
  - HasSunroof = 1  
